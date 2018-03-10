@@ -10,13 +10,6 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
 
     <link type="text/css" rel="stylesheet" href="css/style.css" />
-
-    <!-- Plotly.js -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  
-    <!-- Angularjs -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-  
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -47,22 +40,19 @@
         </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="row">
+        <div class="row">
+            <div class="container">
             <form class=" center">
                 <div class="row">
-                    <h3>Sell Order Form</h3>
-                    <div class="col s12">
-                        <p>E-Currency:</p> 
-                        <select class="browser-default col s6">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                    </div>
+                <h3>Sell Order Form</h3>
+                <div class="col s12">
+                    <p>E-Currency:</p> 
+                    <select class="browser-default col s6">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Bitcoin</option>
+                        <option value="2">Ethereum</option>
+                    </select>
                 </div>
-                <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">attach_money</i>
                     <input id="amount_usd" type="text" class="validate">
