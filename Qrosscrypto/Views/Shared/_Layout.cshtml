@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Qrosscrypto</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Import Font Awesome Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- momentjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment-with-locales.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="@Url.Action("Index", "Home")" id="logo-container" class="brand-logo"><img src="~/images/logo.png" alt="Qross" style="padding-top:5px;" /></a>
+                
+                <ul class="right hide-on-med-and-down">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li><a href="@Url.Action("BuyOrder", "Home")"><i class="material-icons left">shopping_cart</i>Buy Order</a></li>
+                    <li><a href="@Url.Action("SellOrder", "Home")"><i class="material-icons left">attach_money</i>Sell Order</a></li>
+                    <li><a href="@Url.Action("Payment", "Home")"><i class="material-icons left">description</i>Payment</a></li>
+                    <li><a href="@Url.Action("FAQS", "Home")"><i class="material-icons left">question_answer</i>FAQS</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")"><i class="material-icons left">contact_mail</i>Contact Us</a></li>
+                </ul>
+                <ul id="slide-out" class="side-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li><div class="divider"></div></li>
+                    <li><a href="@Url.Action("BuyOrder", "Home")"><i class="material-icons left">shopping_cart</i>Buy Order</a></li>
+                    <li><a href="@Url.Action("SellOrder", "Home")"><i class="material-icons left">attach_money</i>Sell Order</a></li>
+                    <li><a href="@Url.Action("Payment", "Home")"><i class="material-icons left">description</i>Payment</a></li>
+                    <li><a href="@Url.Action("FAQS", "Home")"><i class="material-icons left">question_answer</i>FAQS</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")"><i class="material-icons left">contact_mail</i>Contact Us</a></li>
+                </ul>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <!-- <div class="row">
+                <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+                </div>
+            </div> -->
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                &copy; @DateTime.Now.Year - Qrosscrypto
+                <a class="icon-container right" href="https://twitter.com/Qrosscrypto" target="_self"><span class="fa  fa-twitter" style="color:white"></span></a>
+                <a class="icon-container right" href="#" target="_self"><span class="fa  fa-facebook" style="color:white"></span></a>
+                <a class="icon-container right" href="https://www.instagram.com/Qrosscrypto" target="_self"><span class="fa  fa-instagram" style="color:white"></span></a>&nbsp;
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

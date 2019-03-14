@@ -1,0 +1,78 @@
+﻿@model Qrosscrypto.Models.OrderFormModel
+
+@{
+    ViewBag.Title = "Buy Order";
+}
+
+
+<div class="row">
+    <div class="container center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @*<form class="center" method="post" id="sellOrder">*@
+            <div class="row">
+                <h3>Buy Order Form</h3>
+                <div class="col s12">
+                    <p>E-Currency:</p>
+                    @Html.DropDownListFor(model => model.ECurrency, new SelectList(new List<Object>{
+                        new { value = "Bitcoin" , text = "Bitcoin"  },
+                        new { value = "Ethereum" , text = "Ethereum"  } }, "value", "text"),
+                        htmlAttributes: new { @class = "form-control browser-default col s12 m6 required" })
+                    @Html.ValidationMessageFor(model => model.ECurrency, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">attach_money</i>
+                    @Html.EditorFor(model => model.AmountUSD, new { htmlAttributes = new { @class = "form-control required" } })
+                    @Html.ValidationMessageFor(model => model.AmountUSD, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.AmountUSD, htmlAttributes: new { @class = "control-label col-md-2 required" })
+                </div>
+                @*<div class="input-field col s12 m6">
+                    <i class="material-icons prefix">attach_money</i>
+                    @Html.EditorFor(model => model.AmountNaira, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AmountNaira, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.AmountNaira, htmlAttributes: new { @class = "control-label col-md-2 required" })
+                </div>*@
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">account_circle</i>
+                    @Html.EditorFor(model => model.AccountName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AccountName, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.AccountName, htmlAttributes: new { @class = "control-label col-md-2 required" })
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">account_balance</i>
+                    @Html.EditorFor(model => model.WalletAddress, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.WalletAddress, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.WalletAddress, htmlAttributes: new { @class = "control-label col-md-2 required" })
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">payment</i>
+                    @Html.EditorFor(model => model.PaymentMethod, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PaymentMethod, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.PaymentMethod, htmlAttributes: new { @class = "control-label col-md-2 required" })
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">account_box</i>
+                    @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2 required" })
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">email</i>
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2 required" })
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">phone</i>
+                    @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.PhoneNo, htmlAttributes: new { @class = "control-label col-md-2 required" })
+                </div>
+            </div>
+            <button type="submit" value="Submit" class="waves-effect waves-light btn green accent-4"><i class="material-icons left">shopping_cart</i>Buy Order</button>
+            @*</form>*@
+        }
+    </div>
+</div>
+

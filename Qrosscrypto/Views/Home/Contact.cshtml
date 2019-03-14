@@ -1,0 +1,50 @@
+﻿@model Qrosscrypto.Models.ContactModel
+
+@{
+    ViewBag.Title = "Contact Us";
+}
+
+<div class="row">
+    <div class="container center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @*<form class="center" method="post" id="sellOrder">*@
+        <div class="row">
+            <h3 class="center">Contact Form</h3>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">account_circle</i>
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2 required" })
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">account_circle</i>
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2 required" })
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">email</i>
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2 required" })
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">phone</i>
+                @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.PhoneNo, htmlAttributes: new { @class = "control-label col-md-2 required" })
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2 required" })
+            </div>
+        </div>
+            <button type="submit" value="Submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Send</button>
+            @*</form>*@
+        }
+    </div>
+</div>

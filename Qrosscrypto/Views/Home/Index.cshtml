@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="row">
+    <div class="row center" id="particles-js" style="height:400px">
+        <br>
+        <h3 class="header center white-text center">
+            Qross-Crypto
+        </h3>
+        <h5 class="header col s12 white-text center">
+            We buy and Sell Bitcoin and Ethereum.
+        </h5>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center">
+                    <br>
+                    <span class="center red-text badge " style="float:none">Please Note: The minimum BUY or SELL amount is $50 worth.</span>
+                    <br>
+                    <p></p>
+                    <a class="waves-effect waves-light btn green accent-4" href="@Url.Action("BuyOrder", "Home")">Buy Order</a>
+
+                    <a class="waves-effect waves-light btn" href="@Url.Action("SellOrder", "Home")">Sell Order</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m4 offset-m1">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Current Bitcoin Price:</span>
+                            <h3>
+                                <span id="bitcoinCurrentPrice"></span>USD
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4 offset-m2">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Current Ethereum Price:</span>
+                            <h3>
+                                <span id="ethereumCurrentPrice"></span>USD
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row center">
+                <br />
+                <br />
+                <h3>Bitcoin Price (50 days)</h3>
+                <div id="bitcoinPriceHistory" class="center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var x = [];
+    var y = [];
+    var data = [];
+       
+    var values = @Html.Raw((ViewData["Bitcoinpricehistory"]));
+    var bitcoinCurrentPrice = @Html.Raw((ViewData["BitcoinCurrentPrice"]));
+    var ethereumCurrentPrice = @Html.Raw((ViewData["EthereumCurrentPrice"]));
+    var newDate;
+    var bitcoinCurrentPrice = bitcoinCurrentPrice.USD;
+    var ethereumCurrentPrice = ethereumCurrentPrice.USD;
+    document.getElementById("bitcoinCurrentPrice").innerHTML = bitcoinCurrentPrice;
+    document.getElementById("ethereumCurrentPrice").innerHTML = ethereumCurrentPrice;
+    //console.log(values.values);
+    for (let value of values.values) {
+        newDate = moment.unix(value.x).format("MMM Do YY");
+        x.push(newDate);
+        y.push(value.y);
+    }
+        
+    //console.log(x);
+    //console.log(y);
+
+    data = [{ "x": x, "y": y, "type": "scatter" }];
+    Plotly.newPlot('bitcoinPriceHistory', data);
+</script>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/particle.js"></script>
+<script type="text/javascript" src="~/Scripts/particles.js"></script>
